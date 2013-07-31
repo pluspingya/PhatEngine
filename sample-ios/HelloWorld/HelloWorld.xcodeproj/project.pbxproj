@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEAC260E17A94FA000C98B7A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC260D17A94FA000C98B7A /* UIKit.framework */; };
+		CEAC261017A94FA000C98B7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC260F17A94FA000C98B7A /* Foundation.framework */; };
+		CEAC261217A94FA000C98B7A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC261117A94FA000C98B7A /* CoreGraphics.framework */; };
+		CEAC261417A94FA000C98B7A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC261317A94FA000C98B7A /* GLKit.framework */; };
+		CEAC261617A94FA000C98B7A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC261517A94FA000C98B7A /* OpenGLES.framework */; };
+		CEAC261C17A94FA000C98B7A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEAC261A17A94FA000C98B7A /* InfoPlist.strings */; };
+		CEAC261E17A94FA000C98B7A /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEAC261D17A94FA000C98B7A /* main.mm */; };
+		CEAC262217A94FA000C98B7A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEAC262117A94FA000C98B7A /* AppDelegate.mm */; };
+		CEAC262417A94FA100C98B7A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAC262317A94FA100C98B7A /* Default.png */; };
+		CEAC262617A94FA100C98B7A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAC262517A94FA100C98B7A /* Default@2x.png */; };
+		CEAC262817A94FA100C98B7A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAC262717A94FA100C98B7A /* Default-568h@2x.png */; };
+		CEAC262F17A94FA100C98B7A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEAC262E17A94FA100C98B7A /* ViewController.mm */; };
+		CEAC263217A94FA100C98B7A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAC263017A94FA100C98B7A /* ViewController.xib */; };
+		CEAC265B17A9602D00C98B7A /* PhatContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEAC265917A9602D00C98B7A /* PhatContext.cpp */; };
+		CEAC265F17A965B000C98B7A /* PhatObj3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEAC265E17A965B000C98B7A /* PhatObj3D.cpp */; };
+		CEAC266117A968A700C98B7A /* PhatPlane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEAC266017A968A700C98B7A /* PhatPlane.cpp */; };
+		CEAC266417A969D700C98B7A /* PhatTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEAC266317A969D700C98B7A /* PhatTexture.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CEAC260A17A94FA000C98B7A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEAC260D17A94FA000C98B7A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEAC260F17A94FA000C98B7A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEAC261117A94FA000C98B7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEAC261317A94FA000C98B7A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		CEAC261517A94FA000C98B7A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CEAC261917A94FA000C98B7A /* HelloWorld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HelloWorld-Info.plist"; sourceTree = "<group>"; };
+		CEAC261B17A94FA000C98B7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEAC261D17A94FA000C98B7A /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		CEAC261F17A94FA000C98B7A /* HelloWorld-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloWorld-Prefix.pch"; sourceTree = "<group>"; };
+		CEAC262017A94FA000C98B7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CEAC262117A94FA000C98B7A /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		CEAC262317A94FA100C98B7A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CEAC262517A94FA100C98B7A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CEAC262717A94FA100C98B7A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CEAC262D17A94FA100C98B7A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CEAC262E17A94FA100C98B7A /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		CEAC263117A94FA100C98B7A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		CEAC265017A9602D00C98B7A /* PhatContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhatContext.h; sourceTree = "<group>"; };
+		CEAC265217A9602D00C98B7A /* col.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = col.h; sourceTree = "<group>"; };
+		CEAC265317A9602D00C98B7A /* rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rec.h; sourceTree = "<group>"; };
+		CEAC265417A9602D00C98B7A /* vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vec.h; sourceTree = "<group>"; };
+		CEAC265917A9602D00C98B7A /* PhatContext.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatContext.cpp; sourceTree = "<group>"; };
+		CEAC265C17A9638900C98B7A /* PhatPlane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhatPlane.h; sourceTree = "<group>"; };
+		CEAC265D17A9640D00C98B7A /* PhatObj3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhatObj3D.h; sourceTree = "<group>"; };
+		CEAC265E17A965B000C98B7A /* PhatObj3D.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatObj3D.cpp; sourceTree = "<group>"; };
+		CEAC266017A968A700C98B7A /* PhatPlane.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatPlane.cpp; sourceTree = "<group>"; };
+		CEAC266217A9697400C98B7A /* PhatTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhatTexture.h; sourceTree = "<group>"; };
+		CEAC266317A969D700C98B7A /* PhatTexture.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatTexture.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEAC260717A94F9F00C98B7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEAC260E17A94FA000C98B7A /* UIKit.framework in Frameworks */,
+				CEAC261017A94FA000C98B7A /* Foundation.framework in Frameworks */,
+				CEAC261217A94FA000C98B7A /* CoreGraphics.framework in Frameworks */,
+				CEAC261417A94FA000C98B7A /* GLKit.framework in Frameworks */,
+				CEAC261617A94FA000C98B7A /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEAC260117A94F9F00C98B7A = {
+			isa = PBXGroup;
+			children = (
+				CEAC264B17A9602D00C98B7A /* PhatEngine */,
+				CEAC261717A94FA000C98B7A /* HelloWorld */,
+				CEAC260C17A94FA000C98B7A /* Frameworks */,
+				CEAC260B17A94FA000C98B7A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEAC260B17A94FA000C98B7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC260A17A94FA000C98B7A /* HelloWorld.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEAC260C17A94FA000C98B7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC260D17A94FA000C98B7A /* UIKit.framework */,
+				CEAC260F17A94FA000C98B7A /* Foundation.framework */,
+				CEAC261117A94FA000C98B7A /* CoreGraphics.framework */,
+				CEAC261317A94FA000C98B7A /* GLKit.framework */,
+				CEAC261517A94FA000C98B7A /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEAC261717A94FA000C98B7A /* HelloWorld */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC262017A94FA000C98B7A /* AppDelegate.h */,
+				CEAC262117A94FA000C98B7A /* AppDelegate.mm */,
+				CEAC262D17A94FA100C98B7A /* ViewController.h */,
+				CEAC262E17A94FA100C98B7A /* ViewController.mm */,
+				CEAC263017A94FA100C98B7A /* ViewController.xib */,
+				CEAC261817A94FA000C98B7A /* Supporting Files */,
+			);
+			path = HelloWorld;
+			sourceTree = "<group>";
+		};
+		CEAC261817A94FA000C98B7A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC261917A94FA000C98B7A /* HelloWorld-Info.plist */,
+				CEAC261A17A94FA000C98B7A /* InfoPlist.strings */,
+				CEAC261D17A94FA000C98B7A /* main.mm */,
+				CEAC261F17A94FA000C98B7A /* HelloWorld-Prefix.pch */,
+				CEAC262317A94FA100C98B7A /* Default.png */,
+				CEAC262517A94FA100C98B7A /* Default@2x.png */,
+				CEAC262717A94FA100C98B7A /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEAC264B17A9602D00C98B7A /* PhatEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC264C17A9602D00C98B7A /* include */,
+				CEAC265517A9602D00C98B7A /* src */,
+			);
+			name = PhatEngine;
+			path = ../../PhatEngine;
+			sourceTree = "<group>";
+		};
+		CEAC264C17A9602D00C98B7A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC264D17A9602D00C98B7A /* helper */,
+				CEAC264E17A9602D00C98B7A /* model */,
+				CEAC264F17A9602D00C98B7A /* phat */,
+				CEAC265117A9602D00C98B7A /* vo */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		CEAC264D17A9602D00C98B7A /* helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		CEAC264E17A9602D00C98B7A /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		CEAC264F17A9602D00C98B7A /* phat */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC265017A9602D00C98B7A /* PhatContext.h */,
+				CEAC265C17A9638900C98B7A /* PhatPlane.h */,
+				CEAC265D17A9640D00C98B7A /* PhatObj3D.h */,
+				CEAC266217A9697400C98B7A /* PhatTexture.h */,
+			);
+			path = phat;
+			sourceTree = "<group>";
+		};
+		CEAC265117A9602D00C98B7A /* vo */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC265217A9602D00C98B7A /* col.h */,
+				CEAC265317A9602D00C98B7A /* rec.h */,
+				CEAC265417A9602D00C98B7A /* vec.h */,
+			);
+			path = vo;
+			sourceTree = "<group>";
+		};
+		CEAC265517A9602D00C98B7A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC265617A9602D00C98B7A /* helper */,
+				CEAC265717A9602D00C98B7A /* model */,
+				CEAC265817A9602D00C98B7A /* phat */,
+				CEAC265A17A9602D00C98B7A /* vo */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CEAC265617A9602D00C98B7A /* helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		CEAC265717A9602D00C98B7A /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		CEAC265817A9602D00C98B7A /* phat */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC265917A9602D00C98B7A /* PhatContext.cpp */,
+				CEAC265E17A965B000C98B7A /* PhatObj3D.cpp */,
+				CEAC266017A968A700C98B7A /* PhatPlane.cpp */,
+				CEAC266317A969D700C98B7A /* PhatTexture.cpp */,
+			);
+			path = phat;
+			sourceTree = "<group>";
+		};
+		CEAC265A17A9602D00C98B7A /* vo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = vo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEAC260917A94F9F00C98B7A /* HelloWorld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEAC263517A94FA100C98B7A /* Build configuration list for PBXNativeTarget "HelloWorld" */;
+			buildPhases = (
+				CEAC260617A94F9F00C98B7A /* Sources */,
+				CEAC260717A94F9F00C98B7A /* Frameworks */,
+				CEAC260817A94F9F00C98B7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelloWorld;
+			productName = HelloWorld;
+			productReference = CEAC260A17A94FA000C98B7A /* HelloWorld.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEAC260217A94F9F00C98B7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Plus Pingya";
+			};
+			buildConfigurationList = CEAC260517A94F9F00C98B7A /* Build configuration list for PBXProject "HelloWorld" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEAC260117A94F9F00C98B7A;
+			productRefGroup = CEAC260B17A94FA000C98B7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEAC260917A94F9F00C98B7A /* HelloWorld */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEAC260817A94F9F00C98B7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEAC261C17A94FA000C98B7A /* InfoPlist.strings in Resources */,
+				CEAC262417A94FA100C98B7A /* Default.png in Resources */,
+				CEAC262617A94FA100C98B7A /* Default@2x.png in Resources */,
+				CEAC262817A94FA100C98B7A /* Default-568h@2x.png in Resources */,
+				CEAC263217A94FA100C98B7A /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEAC260617A94F9F00C98B7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEAC261E17A94FA000C98B7A /* main.mm in Sources */,
+				CEAC262217A94FA000C98B7A /* AppDelegate.mm in Sources */,
+				CEAC262F17A94FA100C98B7A /* ViewController.mm in Sources */,
+				CEAC265B17A9602D00C98B7A /* PhatContext.cpp in Sources */,
+				CEAC265F17A965B000C98B7A /* PhatObj3D.cpp in Sources */,
+				CEAC266117A968A700C98B7A /* PhatPlane.cpp in Sources */,
+				CEAC266417A969D700C98B7A /* PhatTexture.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CEAC261A17A94FA000C98B7A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEAC261B17A94FA000C98B7A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CEAC263017A94FA100C98B7A /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEAC263117A94FA100C98B7A /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEAC263317A94FA100C98B7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CEAC263417A94FA100C98B7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEAC263617A94FA100C98B7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = ../../PhatEngine/include/;
+				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CEAC263717A94FA100C98B7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
+				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEAC260517A94F9F00C98B7A /* Build configuration list for PBXProject "HelloWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEAC263317A94FA100C98B7A /* Debug */,
+				CEAC263417A94FA100C98B7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEAC263517A94FA100C98B7A /* Build configuration list for PBXNativeTarget "HelloWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEAC263617A94FA100C98B7A /* Debug */,
+				CEAC263717A94FA100C98B7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEAC260217A94F9F00C98B7A /* Project object */;
+}
