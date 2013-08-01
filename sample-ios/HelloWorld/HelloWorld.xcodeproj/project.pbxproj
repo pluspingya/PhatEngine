@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE72AB6117AAC473001E455B /* Red-bird.png in Resources */ = {isa = PBXBuildFile; fileRef = CE72AB6017AAC473001E455B /* Red-bird.png */; };
+		CE72AB6317AACA0E001E455B /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = CE72AB6217AACA0E001E455B /* test.png */; };
 		CEAC260E17A94FA000C98B7A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC260D17A94FA000C98B7A /* UIKit.framework */; };
 		CEAC261017A94FA000C98B7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC260F17A94FA000C98B7A /* Foundation.framework */; };
 		CEAC261217A94FA000C98B7A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC261117A94FA000C98B7A /* CoreGraphics.framework */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE72AB6017AAC473001E455B /* Red-bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red-bird.png"; sourceTree = "<group>"; };
+		CE72AB6217AACA0E001E455B /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		CEAC260A17A94FA000C98B7A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAC260D17A94FA000C98B7A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEAC260F17A94FA000C98B7A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE72AB5F17AAC473001E455B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CE72AB6217AACA0E001E455B /* test.png */,
+				CE72AB6017AAC473001E455B /* Red-bird.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		CEAC260117A94F9F00C98B7A = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +120,7 @@
 		CEAC261717A94FA000C98B7A /* HelloWorld */ = {
 			isa = PBXGroup;
 			children = (
+				CE72AB5F17AAC473001E455B /* Assets */,
 				CEAC262017A94FA000C98B7A /* AppDelegate.h */,
 				CEAC262117A94FA000C98B7A /* AppDelegate.mm */,
 				CEAC262D17A94FA100C98B7A /* ViewController.h */,
@@ -286,6 +300,8 @@
 				CEAC262617A94FA100C98B7A /* Default@2x.png in Resources */,
 				CEAC262817A94FA100C98B7A /* Default-568h@2x.png in Resources */,
 				CEAC263217A94FA100C98B7A /* ViewController.xib in Resources */,
+				CE72AB6117AAC473001E455B /* Red-bird.png in Resources */,
+				CE72AB6317AACA0E001E455B /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +440,7 @@
 				CEAC263717A94FA100C98B7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

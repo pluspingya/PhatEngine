@@ -141,35 +141,37 @@ void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
 			0.0, 0.0, 1.0
 		};
         
-		//GLfloat texCoords[8];
+		GLfloat texCoords[] = {
+            0.0f, 1.0f,
+            1.0f, 1.0f,
+            0.0f, 0.0f,
+            1.0f, 0.0f
+        };
 		if(texture) {
-          /*  
 #ifdef ANDROID_NDK
-			texCoords[0] = texture->texCoordU.x;	texCoords[1] = texture->texCoordV.y;
-			texCoords[2] = texture->texCoordV.x;	texCoords[3] = texture->texCoordV.y;
-			texCoords[4] = texture->texCoordU.x;	texCoords[5] = texture->texCoordU.y;
-			texCoords[6] = texture->texCoordV.x;	texCoords[7] = texture->texCoordU.y;
+			texCoords[0] = texture->TexCoord[0].x;	texCoords[1] = texture->TexCoord[0].y;
+			texCoords[2] = texture->TexCoord[1].x;	texCoords[3] = texture->TexCoord[1].y;
+			texCoords[4] = texture->TexCoord[2].x;	texCoords[5] = texture->TexCoord[2].y;
+			texCoords[6] = texture->TexCoord[3].x;	texCoords[7] = texture->TexCoord[3].y;
 #else
-			texCoords[0] = texture->texCoordU.x;	texCoords[1] = texture->texCoordU.y;
-			texCoords[2] = texture->texCoordV.x;	texCoords[3] = texture->texCoordU.y;
-			texCoords[4] = texture->texCoordU.x;	texCoords[5] = texture->texCoordV.y;
-			texCoords[6] = texture->texCoordV.x;	texCoords[7] = texture->texCoordV.y;
+			texCoords[0] = texture->TexCoord[0].x;	texCoords[1] = texture->TexCoord[0].y;
+			texCoords[2] = texture->TexCoord[1].x;	texCoords[3] = texture->TexCoord[1].y;
+			texCoords[4] = texture->TexCoord[2].x;	texCoords[5] = texture->TexCoord[2].y;
+			texCoords[6] = texture->TexCoord[3].x;	texCoords[7] = texture->TexCoord[3].y;
 #endif
-           */
 		}
         
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_NORMAL_ARRAY);
 		
-        
 		glVertexPointer(2, GL_FLOAT, 0, squareVertices);
 		glNormalPointer(GL_FLOAT, 0, normals);
-        /*
+        
 		if(texture) {
 			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 			glTexCoordPointer(2, GL_FLOAT, 0, texCoords);
 		}
-         */
+         
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         
 		glDisableClientState(GL_VERTEX_ARRAY);

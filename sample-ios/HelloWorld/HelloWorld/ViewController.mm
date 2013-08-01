@@ -10,9 +10,11 @@
 
 #include <phat/PhatContext.h>
 #include <phat/PhatPlane.h>
+#include <phat/PhatTexture.h>
 
-PhatContext *phat = NULL;
-PhatPlane *plane = NULL;
+PhatContext     *phat       = NULL;
+PhatPlane       *plane      = NULL;
+PhatTexture     *texture    = NULL;
 
 @interface ViewController () {
 
@@ -87,6 +89,8 @@ PhatPlane *plane = NULL;
     plane = new PhatPlane(vec2f(100.0f, 100.0f));
     plane->SetPivotType(TOP_LEFT);
     
+    texture = new PhatTexture("Assets/", "test.png");
+    
 }
 
 - (void)tearDownGL
@@ -94,9 +98,10 @@ PhatPlane *plane = NULL;
     [EAGLContext setCurrentContext:self.context];
     self.effect = nil;
     
-    delete plane; plane = NULL;
+    delete texture;     texture = NULL;
+    delete plane;       plane   = NULL;
     
-    delete phat; phat = NULL;
+    delete phat;        phat    = NULL;
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods
@@ -111,13 +116,22 @@ PhatPlane *plane = NULL;
     phat->BeginRender();
     phat->SetDimension(2);
     
-    plane->Position.set(0.0f, 0.0f);
-    plane->Colour.set(0.0f, 0.0f, 1.0f, 1.0f);
-    plane->Render(phat);
-    
     plane->Position.set(phat->ScreenSize.x/2.0f, phat->ScreenSize.y/2.0f);
-    plane->Colour.set(1.0f, 1.0f, 1.0f, 1.0f);
-    plane->Render(phat);
+    texture->CropTexture(rec4f(0.0f, 0.0f, 100.0f, 100.0f));
+    plane->SetPivotType(BOTTOM_RIGHT);
+    plane->Render(phat, texture);
+    
+    texture->CropTexture(rec4f(100.0f, 0.0f, 100.0f, 100.0f));
+    plane->SetPivotType(BOTTOM_LEFT);
+    plane->Render(phat, texture);
+    
+    texture->CropTexture(rec4f(0.0f, 100.0f, 100.0f, 100.0f));
+    plane->SetPivotType(TOP_RIGHT);
+    plane->Render(phat, texture);
+    
+    texture->CropTexture(rec4f(100.0f, 100.0f, 100.0f, 100.0f));
+    plane->SetPivotType(TOP_LEFT);
+    plane->Render(phat, texture);
     
     phat->EndRender();
 }
