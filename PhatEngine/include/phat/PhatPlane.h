@@ -25,18 +25,26 @@ class PhatPlane: public PhatObj3D {
 private:
     void _initialize(vec2f size);
     void _release();
-    
+    void _tweening();
 public:
     
     BLENDMODE   Blendmode;
+    void *UserData;
+    
+    bool  TweenActive;
+    bool  TweenConstantly;
+    float TweenSpeed;
+    vec3f TweenDistination;
     
     PhatPlane();
     PhatPlane(vec2f size);
     ~PhatPlane();
     
+    void Update();
     void Render(PhatContext *context);
     void Render(PhatContext *context, PhatTexture *texture);
     
+    void Tween(vec3f start, vec3f distination, float speed, bool constantly);
 };
 
 #endif  //PHATPLANE_H_INCLUDED

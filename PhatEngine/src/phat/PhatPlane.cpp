@@ -14,6 +14,12 @@
 void PhatPlane::_initialize(vec2f size) {
     Size.copy(size);
     Blendmode = NORMAL;
+    UserData = NULL;
+    
+    TweenActive = false;
+    TweenConstantly = false;
+    TweenSpeed = 1.0f;
+    
 }
 PhatPlane::PhatPlane() {
     _initialize(vec2f(100.0f, 100.0f));
@@ -33,13 +39,15 @@ PhatPlane::~PhatPlane() {
 
 /////////////////////////////////////////////////////////
 // Core functions - must be called
+void PhatPlane::Update() {
+    _tweening();
+}
 void PhatPlane::Render(PhatContext *context) {
     Render(context, NULL);
 }
 void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
     bool drawit = true;
-    
-    
+
     /*
      switch(pinningType) {
      default:
@@ -60,9 +68,9 @@ void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
      }
      */
     
-    //    if (color.a <= 0.000001f) {
-    //        drawit = false;
-    //    }
+    if (Colour.a <= 0.0f) {
+        drawit = false;
+    }
     
 	if(drawit) {
 		glLoadIdentity();
@@ -93,39 +101,12 @@ void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
             case GROW_TEST: glBlendFunc(GL_DST_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  break;
         }
         
-		//Texturing
-        //		PhatTexture *t_holdTexture = NULL;
-        //		if(_texture!=NULL) {
-        //			t_holdTexture = texture;
-        //			texture = _texture;
-        //		}
-        //        if(_texture) {
-        //			glEnable(GL_TEXTURE_2D);
-        //			glBindTexture(GL_TEXTURE_2D, _texture->texture);
-        //		}else {
         if(texture) {
             glEnable(GL_TEXTURE_2D);
             glBindTexture(GL_TEXTURE_2D, texture->TextureID);
         }else {
             glDisable(GL_TEXTURE_2D);
         }
-        //		}
-        
-		
-        //		if(t_holdTexture) {
-        //			texture = t_holdTexture;
-        //		}
-        
-		
-        
-        //        glEnable(GL_TEXTURE_2D);                // Enable Texture Mapping
-        //        glShadeModel(GL_SMOOTH);                // Enable Smooth Shading
-        //        glClearColor(0.0f, 0.0f, 0.0f, 0.5f);           // Black Background
-        //        glClearDepth(1.0f);                 // Depth Buffer Setup
-        //        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);  // Really Nice Perspective Calculations
-        //        glBlendFunc(GL_SRC_ALPHA,GL_ONE);           // Set The Blending Function For Translucency
-        //        glEnable(GL_BLEND);                 // Enable Blending
-        
         
 		GLfloat squareVertices[] = {
             -(Size.x/2.0f)*Scaling.x, -(Size.y/2.0f)*Scaling.y,
@@ -182,4 +163,55 @@ void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
 		glEnable(GL_DEPTH_TEST);
 	}
     
+}
+
+/////////////////////////////////////////////////////////
+// Optional functions
+void PhatPlane::Tween(vec3f start, vec3f distination, float speed, bool constantly) {
+    TweenActive     = true;
+    TweenConstantly = constantly;
+    Position.copy(start);
+    TweenDistination.copy(distination);
+    TweenSpeed      = speed;
+}
+
+/////////////////////////////////////////////////////////
+// Machanism
+void PhatPlane::_tweening() {
+    if (TweenActive) {
+        float x = TweenDistination.x - Position.x;
+        float y = TweenDistination.y - Position.y;
+        float s = TweenSpeed;
+        if (!TweenConstantly) {
+            float d = sqrtf(x * x + y * y);
+            s = (d/100.0)*TweenSpeed;
+        }
+        float angle = atan2(y, x);
+        if(abs(x)>s||abs(y)>s) {
+            Position.x += s * cos(angle);
+            Position.y += s * sin(angle);
+        }
+        if (Position.x == TweenDistination.x && Position.y == TweenDistination.y) {
+            TweenActive = false;
+        }
+        /*
+        if (Rotation.z < 0.0f) {
+            Rotation.z += 360.0f;
+        }
+        if (this.trotation < 0.0) {
+            this.trotation += 360.0;
+        }
+        if (this.rotation > 360.0) {
+            this.rotation -= 360.0;
+        }
+        if (this.trotation > 360.0) {
+            this.trotation -= 360.0;
+        }
+        var z = this.trotation - this.rotation;
+        var d2 = Math.sqrt(d*d + z*z);
+        sp = (d2/100.0)*speed;
+        angle = Math.atan2(z, d);
+        this.rotation += (sp * Math.sin(angle));
+        */
+    }
 }

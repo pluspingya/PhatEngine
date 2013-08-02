@@ -117,7 +117,7 @@ GLuint PhatTexture::LoadTexture(const char *path, const char *filename) {
     _textureSize.x = tmpWidth;
 	_textureSize.y = tmpHeight;
     
-    NSLog(@"%fx%f", _maximumSize.x, _maximumSize.y);
+    //NSLog(@"%fx%f", _textureSize.x, _textureSize.y);
     
     // iPhone Image Loader API
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -235,20 +235,23 @@ GLuint PhatTexture::LoadTexture(const char *path, const char *filename) {
 }
 
 void PhatTexture::CropTexture(rec4f croprect) {
-    
     TexCoord[0].x = (croprect.x/_textureSize.x);
     TexCoord[0].y = _maximumSize.y - (croprect.y/_textureSize.y);
-    
-    //TexCoord[0].y = 0.78125f;
     TexCoord[1].x = ((croprect.x+croprect.w)/_textureSize.x);
     TexCoord[1].y = _maximumSize.y - (croprect.y/_textureSize.y);
-    //TexCoord[1].y = 0.78125f;
-    
     TexCoord[2].x = (croprect.x/_textureSize.x);
     TexCoord[2].y = _maximumSize.y - ((croprect.y+croprect.h)/_textureSize.y);
-    
     TexCoord[3].x = ((croprect.x+croprect.w)/_textureSize.x);
     TexCoord[3].y = _maximumSize.y - ((croprect.y+croprect.h)/_textureSize.y);
-     
-     
+}
+
+void PhatTexture::CropTexture(int frame, vec2f cropsize) {
+    vec2d t_coord = vec2d();
+    float t_width = (frame*cropsize.x);
+    while (t_width > _textureSize.x) {
+        t_coord.y ++;
+        t_width -= _textureSize.x;
+    }
+    t_coord.x = (int)(t_width/cropsize.x)-1;
+    CropTexture(rec4f(t_coord.x*cropsize.x, t_coord.y*cropsize.y, cropsize.x, cropsize.y));
 }

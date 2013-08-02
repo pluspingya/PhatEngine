@@ -82,6 +82,11 @@ struct vec3f {
 	vec3f(float _v) {
 		x = y = z = _v;
 	}
+    vec3f(float _x, float _y) {
+        x = _x;
+        y = _y;
+        z = 0.0f;
+    }
 	vec3f(float _x, float _y, float _z) {
 		x = _x;
 		y = _y;
@@ -99,6 +104,11 @@ struct vec3f {
 		y = _y;
 		z = _z;
 	}
+    void copy(vec3f vec) {
+        x = vec.x;
+        y = vec.y;
+        z = vec.z;
+    }
 };
 
 #endif  //VEC_H_INCLUDED

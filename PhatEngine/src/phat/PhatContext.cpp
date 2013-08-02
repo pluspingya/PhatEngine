@@ -18,6 +18,8 @@ void PhatContext::_initialize(vec2d screensize, col4f screencolour) {
     Ortho = rec4f(0.0, 0.0, screensize.x, screensize.y);
     Scaling.set(1.0f);
     ZoomFactor = 1.0f;
+    
+    
 }
 PhatContext::PhatContext() {
     _initialize(vec2d(320, 480), col4f(1.0f, 0.0f, 0.0f, 1.0f));
