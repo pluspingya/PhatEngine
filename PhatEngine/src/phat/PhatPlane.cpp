@@ -129,6 +129,7 @@ void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
             1.0f, 0.0f
         };
 		if(texture) {
+            texture->PhatPlane_CropForAnimation();
             if (texture->TexFlip.x) {
                 texCoords[0] = texture->TexCoord[1].x;
                 texCoords[2] = texture->TexCoord[0].x;

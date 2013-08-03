@@ -22,8 +22,15 @@ class PhatTexture {
     
 private:
     
-    vec2f _textureSize;
-    vec2f _maximumSize;
+    vec2f   _textureSize;
+    vec2f   _maximumSize;
+    
+    int     _animationStartFrame;
+    int     _animationEndFrame;
+    int     _animationDelay;
+    vec2f   _animationCropsize;
+    int     _animationCountDown;
+    int     _animationCurrenFrame;
     
     void _initialize();
     void _release();
@@ -35,18 +42,21 @@ public:
     vec2f TexCoord[4];
     vec2d TexFlip;
     
+    
     PhatTexture();
     PhatTexture(const char *filename);
     PhatTexture(const char *path, const char *filename);
     ~PhatTexture();
     
+    void Update();
     GLuint LoadTexture(const char *filename);
     GLuint LoadTexture(const char *path, const char *filename);
     void CropTexture(rec4f croprect);
     void CropTexture(int frame, vec2f cropsize);
     void FlipTexture(bool x, bool y);
     void AnimateTexture(int startframe, int endframe, int delay, vec2f cropsize);
-
+    
+    void PhatPlane_CropForAnimation();
 };
 
 #endif  //PHATTEXTURE_H_INCLUDED

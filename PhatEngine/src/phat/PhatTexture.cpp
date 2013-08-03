@@ -17,6 +17,15 @@ void PhatTexture::_initialize() {
     TexCoord[1] = vec2f(1.0f, 1.0f);
     TexCoord[2] = vec2f(0.0f, 0.0f);
     TexCoord[3] = vec2f(1.0f, 0.0f);
+    TexFlip = vec2d();
+    
+    _animationStartFrame = 0;
+    _animationEndFrame = 0;
+    _animationDelay = 0;
+    _animationCropsize = vec2f();
+    _animationCountDown = 0;
+    _animationCurrenFrame = 0;
+    
 }
 PhatTexture::PhatTexture() {
     _initialize();
@@ -40,10 +49,34 @@ PhatTexture::~PhatTexture() {
     _release();
 }
 
+/////////////////////////////////////////////////////////
+// Core functions - must be called
+void PhatTexture::Update() {
+    if(_animationStartFrame > 0 && _animationEndFrame > 0) {
+        _animationCountDown--;
+        if(_animationCountDown <= 0) {
+            _animationCountDown = _animationDelay;
+            if(_animationEndFrame > _animationStartFrame) {
+                _animationCurrenFrame++;
+                if (_animationCurrenFrame > _animationEndFrame) {
+                    _animationCurrenFrame = _animationStartFrame;
+                }else if (_animationCurrenFrame < _animationStartFrame) {
+                    _animationCurrenFrame = _animationStartFrame;
+                }
+            }if (_animationStartFrame > _animationEndFrame) {
+                _animationCurrenFrame--;
+                if (_animationCurrenFrame < _animationEndFrame) {
+                    _animationCurrenFrame = _animationStartFrame;
+                }else if(_animationCurrenFrame > _animationStartFrame) {
+                    _animationCurrenFrame = _animationEndFrame;
+                }
+            }
+        }
+    }
+}
 GLuint PhatTexture::LoadTexture(const char *filename) {
     return TextureID = LoadTexture((char*)"", filename);
 }
-
 GLuint PhatTexture::LoadTexture(const char *path, const char *filename) {
     if(TextureID) {
         glDeleteTextures(1, &TextureID);
@@ -234,6 +267,8 @@ GLuint PhatTexture::LoadTexture(const char *path, const char *filename) {
     return TextureID;
 }
 
+/////////////////////////////////////////////////////////
+// Optional functions
 void PhatTexture::CropTexture(rec4f croprect) {
     TexCoord[0].x = (croprect.x/_textureSize.x);
     TexCoord[0].y = _maximumSize.y - (croprect.y/_textureSize.y);
@@ -245,15 +280,28 @@ void PhatTexture::CropTexture(rec4f croprect) {
     TexCoord[3].y = _maximumSize.y - ((croprect.y+croprect.h)/_textureSize.y);
 }
 void PhatTexture::CropTexture(int frame, vec2f cropsize) {
+    _animationCurrenFrame = frame;
     vec2d t_coord = vec2d();
     float t_width = (frame*cropsize.x);
     while (t_width > _textureSize.x) {
         t_coord.y ++;
         t_width -= _textureSize.x;
     }
-    t_coord.x = (int)(t_width/cropsize.x)-1;
+    t_coord.x = (int)ceil(t_width/cropsize.x)-1;
     CropTexture(rec4f(t_coord.x*cropsize.x, t_coord.y*cropsize.y, cropsize.x, cropsize.y));
 }
 void PhatTexture::FlipTexture(bool x, bool y) {
     TexFlip.set((int)x, (int)y);
+}
+void PhatTexture::AnimateTexture(int startframe, int endframe, int delay, vec2f cropsize) {
+    _animationStartFrame = startframe;
+    _animationEndFrame = endframe;
+    _animationDelay = delay;
+    _animationCropsize.copy(cropsize);
+}
+// This function below will be called in PhatPlane's Render only
+void PhatTexture::PhatPlane_CropForAnimation() {
+    if(_animationCurrenFrame > 0) {
+        CropTexture(_animationCurrenFrame, _animationCropsize);
+    }
 }

@@ -90,6 +90,7 @@ PhatTexture     *texture    = NULL;
     plane->SetPivotType(TOP_LEFT);
     
     texture = new PhatTexture("Assets/", "test.png");
+    texture->AnimateTexture(4, 1, 10, vec2f(100.0f));
     
 }
 
@@ -108,7 +109,7 @@ PhatTexture     *texture    = NULL;
 
 - (void)update
 {
-
+    texture->Update();
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -118,24 +119,24 @@ PhatTexture     *texture    = NULL;
     
     
     plane->Position.set(phat->ScreenSize.x/2.0f, phat->ScreenSize.y/2.0f);
-    texture->CropTexture(rec4f(0.0f, 0.0f, 100.0f, 100.0f));
-    texture->FlipTexture(false, false);
+    //texture->CropTexture(1, vec2f(100.0f, 100.0f));
+    //texture->FlipTexture(false, false);
     plane->SetPivotType(BOTTOM_RIGHT);
     plane->Render(phat, texture);
     
     texture->CropTexture(rec4f(100.0f, 0.0f, 100.0f, 100.0f));
     plane->SetPivotType(BOTTOM_LEFT);
     plane->Render(phat, texture);
-    
+    /*
     texture->CropTexture(rec4f(0.0f, 100.0f, 100.0f, 100.0f));
     plane->SetPivotType(TOP_RIGHT);
     plane->Render(phat, texture);
     
     texture->CropTexture(rec4f(100.0f, 100.0f, 100.0f, 100.0f));
-    texture->FlipTexture(true, true);
+    //texture->FlipTexture(true, true);
     plane->SetPivotType(TOP_LEFT);
     plane->Render(phat, texture);
-    
+    */
     phat->EndRender();
 }
 

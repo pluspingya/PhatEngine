@@ -71,7 +71,11 @@ struct vec3d {
 		y = _y;
 		z = _z;
 	}
-    
+    void set(int _x, int _y, int _z) {
+        x = _x;
+        y = _y;
+        z = _z;
+    }
 };
 // 3D Float Vector
 struct vec3f {
