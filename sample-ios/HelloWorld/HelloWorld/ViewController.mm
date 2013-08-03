@@ -116,8 +116,10 @@ PhatTexture     *texture    = NULL;
     phat->BeginRender();
     phat->SetDimension(2);
     
+    
     plane->Position.set(phat->ScreenSize.x/2.0f, phat->ScreenSize.y/2.0f);
     texture->CropTexture(rec4f(0.0f, 0.0f, 100.0f, 100.0f));
+    texture->FlipTexture(false, false);
     plane->SetPivotType(BOTTOM_RIGHT);
     plane->Render(phat, texture);
     
@@ -130,6 +132,7 @@ PhatTexture     *texture    = NULL;
     plane->Render(phat, texture);
     
     texture->CropTexture(rec4f(100.0f, 100.0f, 100.0f, 100.0f));
+    texture->FlipTexture(true, true);
     plane->SetPivotType(TOP_LEFT);
     plane->Render(phat, texture);
     

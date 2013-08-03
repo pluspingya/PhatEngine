@@ -42,8 +42,8 @@ public:
     
     GLuint LoadTexture(const char *filename);
     GLuint LoadTexture(const char *path, const char *filename);
-    void CropTexture(int frame, vec2f cropsize);
     void CropTexture(rec4f croprect);
+    void CropTexture(int frame, vec2f cropsize);
     void FlipTexture(bool x, bool y);
     void AnimateTexture(int startframe, int endframe, int delay, vec2f cropsize);
 

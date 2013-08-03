@@ -129,17 +129,28 @@ void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
             1.0f, 0.0f
         };
 		if(texture) {
-#ifdef ANDROID_NDK
-			texCoords[0] = texture->TexCoord[0].x;	texCoords[1] = texture->TexCoord[0].y;
-			texCoords[2] = texture->TexCoord[1].x;	texCoords[3] = texture->TexCoord[1].y;
-			texCoords[4] = texture->TexCoord[2].x;	texCoords[5] = texture->TexCoord[2].y;
-			texCoords[6] = texture->TexCoord[3].x;	texCoords[7] = texture->TexCoord[3].y;
-#else
-			texCoords[0] = texture->TexCoord[0].x;	texCoords[1] = texture->TexCoord[0].y;
-			texCoords[2] = texture->TexCoord[1].x;	texCoords[3] = texture->TexCoord[1].y;
-			texCoords[4] = texture->TexCoord[2].x;	texCoords[5] = texture->TexCoord[2].y;
-			texCoords[6] = texture->TexCoord[3].x;	texCoords[7] = texture->TexCoord[3].y;
-#endif
+            if (texture->TexFlip.x) {
+                texCoords[0] = texture->TexCoord[1].x;
+                texCoords[2] = texture->TexCoord[0].x;
+                texCoords[4] = texture->TexCoord[3].x;
+                texCoords[6] = texture->TexCoord[2].x;
+            }else {
+                texCoords[0] = texture->TexCoord[0].x;
+                texCoords[2] = texture->TexCoord[1].x;
+                texCoords[4] = texture->TexCoord[2].x;
+                texCoords[6] = texture->TexCoord[3].x;
+            }
+            if (texture->TexFlip.y) { 
+                texCoords[1] = texture->TexCoord[2].y;
+				texCoords[3] = texture->TexCoord[3].y;
+				texCoords[5] = texture->TexCoord[0].y;
+				texCoords[7] = texture->TexCoord[1].y;
+            }else {
+				texCoords[1] = texture->TexCoord[0].y;
+				texCoords[3] = texture->TexCoord[1].y;
+				texCoords[5] = texture->TexCoord[2].y;
+				texCoords[7] = texture->TexCoord[3].y;
+            }
 		}
         
 		glEnableClientState(GL_VERTEX_ARRAY);

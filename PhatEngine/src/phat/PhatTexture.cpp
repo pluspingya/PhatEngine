@@ -244,7 +244,6 @@ void PhatTexture::CropTexture(rec4f croprect) {
     TexCoord[3].x = ((croprect.x+croprect.w)/_textureSize.x);
     TexCoord[3].y = _maximumSize.y - ((croprect.y+croprect.h)/_textureSize.y);
 }
-
 void PhatTexture::CropTexture(int frame, vec2f cropsize) {
     vec2d t_coord = vec2d();
     float t_width = (frame*cropsize.x);
@@ -254,4 +253,7 @@ void PhatTexture::CropTexture(int frame, vec2f cropsize) {
     }
     t_coord.x = (int)(t_width/cropsize.x)-1;
     CropTexture(rec4f(t_coord.x*cropsize.x, t_coord.y*cropsize.y, cropsize.x, cropsize.y));
+}
+void PhatTexture::FlipTexture(bool x, bool y) {
+    TexFlip.set((int)x, (int)y);
 }
