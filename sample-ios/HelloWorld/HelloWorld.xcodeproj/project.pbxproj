@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE07ADF817AD35A00089863F /* math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE07ADF717AD35A00089863F /* math.cpp */; };
+		CE07AE0D17AD47F10089863F /* tahoma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE07AE0C17AD47F10089863F /* tahoma.ttf */; };
+		CE07AE1B17AE60460089863F /* libFreetype2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE07AE1A17AE60450089863F /* libFreetype2.a */; };
+		CE07AE1E17AE613A0089863F /* PhatText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE07AE1D17AE613A0089863F /* PhatText.cpp */; };
 		CE72AB6117AAC473001E455B /* Red-bird.png in Resources */ = {isa = PBXBuildFile; fileRef = CE72AB6017AAC473001E455B /* Red-bird.png */; };
 		CE72AB6317AACA0E001E455B /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = CE72AB6217AACA0E001E455B /* test.png */; };
 		CEAC260E17A94FA000C98B7A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC260D17A94FA000C98B7A /* UIKit.framework */; };
@@ -29,6 +33,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE07ADF617AD35520089863F /* math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
+		CE07ADF717AD35A00089863F /* math.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = math.cpp; sourceTree = "<group>"; };
+		CE07AE0C17AD47F10089863F /* tahoma.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tahoma.ttf; sourceTree = "<group>"; };
+		CE07AE1A17AE60450089863F /* libFreetype2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFreetype2.a; path = lib/libFreetype2.a; sourceTree = "<group>"; };
+		CE07AE1C17AE61310089863F /* PhatText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhatText.h; sourceTree = "<group>"; };
+		CE07AE1D17AE613A0089863F /* PhatText.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatText.cpp; sourceTree = "<group>"; };
 		CE72AB6017AAC473001E455B /* Red-bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red-bird.png"; sourceTree = "<group>"; };
 		CE72AB6217AACA0E001E455B /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		CEAC260A17A94FA000C98B7A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE07AE1B17AE60460089863F /* libFreetype2.a in Frameworks */,
 				CEAC260E17A94FA000C98B7A /* UIKit.framework in Frameworks */,
 				CEAC261017A94FA000C98B7A /* Foundation.framework in Frameworks */,
 				CEAC261217A94FA000C98B7A /* CoreGraphics.framework in Frameworks */,
@@ -78,9 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE07AE0B17AD473D0089863F /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				CE07AE1A17AE60450089863F /* libFreetype2.a */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
 		CE72AB5F17AAC473001E455B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CE07AE0C17AD47F10089863F /* tahoma.ttf */,
 				CE72AB6217AACA0E001E455B /* test.png */,
 				CE72AB6017AAC473001E455B /* Red-bird.png */,
 			);
@@ -148,6 +168,7 @@
 		CEAC264B17A9602D00C98B7A /* PhatEngine */ = {
 			isa = PBXGroup;
 			children = (
+				CE07AE0B17AD473D0089863F /* lib */,
 				CEAC264C17A9602D00C98B7A /* include */,
 				CEAC265517A9602D00C98B7A /* src */,
 			);
@@ -169,6 +190,7 @@
 		CEAC264D17A9602D00C98B7A /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				CE07ADF617AD35520089863F /* math.h */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -183,6 +205,7 @@
 		CEAC264F17A9602D00C98B7A /* phat */ = {
 			isa = PBXGroup;
 			children = (
+				CE07AE1C17AE61310089863F /* PhatText.h */,
 				CEAC265017A9602D00C98B7A /* PhatContext.h */,
 				CEAC265C17A9638900C98B7A /* PhatPlane.h */,
 				CEAC265D17A9640D00C98B7A /* PhatObj3D.h */,
@@ -215,6 +238,7 @@
 		CEAC265617A9602D00C98B7A /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				CE07ADF717AD35A00089863F /* math.cpp */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -229,6 +253,7 @@
 		CEAC265817A9602D00C98B7A /* phat */ = {
 			isa = PBXGroup;
 			children = (
+				CE07AE1D17AE613A0089863F /* PhatText.cpp */,
 				CEAC265917A9602D00C98B7A /* PhatContext.cpp */,
 				CEAC265E17A965B000C98B7A /* PhatObj3D.cpp */,
 				CEAC266017A968A700C98B7A /* PhatPlane.cpp */,
@@ -302,6 +327,7 @@
 				CEAC263217A94FA100C98B7A /* ViewController.xib in Resources */,
 				CE72AB6117AAC473001E455B /* Red-bird.png in Resources */,
 				CE72AB6317AACA0E001E455B /* test.png in Resources */,
+				CE07AE0D17AD47F10089863F /* tahoma.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +345,8 @@
 				CEAC265F17A965B000C98B7A /* PhatObj3D.cpp in Sources */,
 				CEAC266117A968A700C98B7A /* PhatPlane.cpp in Sources */,
 				CEAC266417A969D700C98B7A /* PhatTexture.cpp in Sources */,
+				CE07ADF817AD35A00089863F /* math.cpp in Sources */,
+				CE07AE1E17AE613A0089863F /* PhatText.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,8 +431,14 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
-				"HEADER_SEARCH_PATHS[arch=*]" = ../../PhatEngine/include/;
+				HEADER_SEARCH_PATHS = ../../PhatEngine/include/;
 				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../PhatEngine/lib\"",
+				);
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -415,7 +449,14 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
+				HEADER_SEARCH_PATHS = ../../PhatEngine/include/;
 				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../PhatEngine/lib\"",
+				);
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

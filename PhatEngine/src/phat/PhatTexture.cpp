@@ -38,7 +38,9 @@ PhatTexture::PhatTexture(const char *path, const char *filename) {
     _initialize();
     LoadTexture(path, filename);
 }
-
+PhatTexture::PhatTexture(vec2d size, unsigned char data[]) {
+	TexImage(size, data);
+}
 
 /////////////////////////////////////////////////////////
 // Destructor - Release
@@ -299,9 +301,57 @@ void PhatTexture::AnimateTexture(int startframe, int endframe, int delay, vec2f 
     _animationDelay = delay;
     _animationCropsize.copy(cropsize);
 }
+void PhatTexture::TexImage(vec2d size, unsigned char data[]) {
+    
+	if(TextureID) {
+		glDeleteTextures(1, &TextureID);
+		TextureID = -1;
+	}
+    
+	vec2d _size = vec2d(makeExpotential(size.x), makeExpotential(size.y));
+	int n = _size.x*_size.y*4;
+	unsigned char* pixels = new unsigned char[n];
+    
+	int k=0;
+	for	(int j=_size.y-1; j>=0; j--) {
+		for (int i=0; i<_size.x; i++) {
+			if(i<size.x && j<size.y) {
+				pixels[k] 		= 255;
+				pixels[k+1] 	= 255;
+				pixels[k+2] 	= 255;
+				pixels[k+3] 	= data[(j*size.x)+i];
+				k+=4;
+			}else {
+				pixels[k] 		= 255;
+				pixels[k+1] 	= 255;
+				pixels[k+2] 	= 255;
+				pixels[k+3] 	= 255;
+				k+=4;
+			}
+		}
+	}
+    
+	glGenTextures(1, &TextureID);
+	glBindTexture(GL_TEXTURE_2D, TextureID);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _size.x, _size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+	delete[] pixels;
+    
+	_textureSize.x = _size.x;
+	_textureSize.y = _size.y;
+    /*
+	_cropSize.x = size.x;
+	_cropSize.y = size.y;
+     */
+	CropTexture(rec4f(0.0f, 0.0f, size.x, size.y));
+	//_animateFrame = 1;
+    
+}
 // This function below will be called in PhatPlane's Render only
 void PhatTexture::PhatPlane_CropForAnimation() {
     if(_animationCurrenFrame > 0) {
         CropTexture(_animationCurrenFrame, _animationCropsize);
     }
 }
+

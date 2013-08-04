@@ -11,10 +11,13 @@
 #include <phat/PhatContext.h>
 #include <phat/PhatPlane.h>
 #include <phat/PhatTexture.h>
+#include <phat/PhatText.h>
 
 PhatContext     *phat       = NULL;
 PhatPlane       *plane      = NULL;
 PhatTexture     *texture    = NULL;
+PhatText        *text       = NULL;
+
 
 @interface ViewController () {
 
@@ -92,6 +95,10 @@ PhatTexture     *texture    = NULL;
     texture = new PhatTexture("Assets/", "test.png");
     texture->AnimateTexture(4, 1, 10, vec2f(100.0f));
     
+    text = new PhatText("tahoma.ttf", 32.0f);
+    text->SetPivotType(TOP_LEFT);
+    text->Colour.set(0.0f, 0.0f, 1.0f, 1.0f);
+
 }
 
 - (void)tearDownGL
@@ -99,6 +106,7 @@ PhatTexture     *texture    = NULL;
     [EAGLContext setCurrentContext:self.context];
     self.effect = nil;
     
+    delete text;        text    = NULL;
     delete texture;     texture = NULL;
     delete plane;       plane   = NULL;
     
@@ -137,6 +145,10 @@ PhatTexture     *texture    = NULL;
     plane->SetPivotType(TOP_LEFT);
     plane->Render(phat, texture);
     */
+    text->SetFontScale(1.0f);
+    text->DrawText(phat, (char*)"HelloWorld", vec2f(10.0f));
+    text->SetFontScale(0.5f);
+    text->DrawText(phat, (char*)"HelloWorld", vec2f(10.0f, 50.0f));
     phat->EndRender();
 }
 

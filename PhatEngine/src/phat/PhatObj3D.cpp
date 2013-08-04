@@ -15,7 +15,7 @@ PhatObj3D::PhatObj3D() {
     Rotation = vec3f();
     Scaling = vec3f(1.0f);
     Colour = col4f(1.0f, 1.0f, 1.0f, 1.0f);
-    this->SetPivotType(CENTER); //Pivot is set here
+    this->SetPivotType(CENTRE); //Pivot is set here
 }
 
 PhatObj3D::~PhatObj3D() {
@@ -29,6 +29,6 @@ void PhatObj3D::SetPivotType(OBJ3D_PIVOT_TYPE type) {
 		case BOTTOM_LEFT:   Pivot.set(-(Size.x/2.0f),  (Size.y/2.0f), 0.0f);    break;
 		case BOTTOM_RIGHT:  Pivot.set( (Size.x/2.0f),  (Size.y/2.0f), 0.0f);    break;
 		default:
-		case CENTER:    Pivot.set();    break;
+		case CENTRE:    Pivot.set();    break;
 	}
 }

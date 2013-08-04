@@ -31,6 +31,8 @@ public:
     BLENDMODE   Blendmode;
     void *UserData;
     
+    PhatTexture *Texture;
+    
     bool  TweenActive;
     bool  TweenConstantly;
     float TweenSpeed;

@@ -18,6 +18,8 @@
 #include <vo/vec.h>
 #include <vo/rec.h>
 
+#include <helper/math.h>
+
 class PhatTexture {
     
 private:
@@ -46,6 +48,7 @@ public:
     PhatTexture();
     PhatTexture(const char *filename);
     PhatTexture(const char *path, const char *filename);
+    PhatTexture(vec2d size, unsigned char data[]);
     ~PhatTexture();
     
     void Update();
@@ -55,6 +58,8 @@ public:
     void CropTexture(int frame, vec2f cropsize);
     void FlipTexture(bool x, bool y);
     void AnimateTexture(int startframe, int endframe, int delay, vec2f cropsize);
+    
+    void TexImage(vec2d size, unsigned char data[]);
     
     void PhatPlane_CropForAnimation();
 };

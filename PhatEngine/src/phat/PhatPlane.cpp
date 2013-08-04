@@ -16,6 +16,8 @@ void PhatPlane::_initialize(vec2f size) {
     Blendmode = NORMAL;
     UserData = NULL;
     
+    Texture = NULL;
+    
     TweenActive = false;
     TweenConstantly = false;
     TweenSpeed = 1.0f;
@@ -43,7 +45,7 @@ void PhatPlane::Update() {
     _tweening();
 }
 void PhatPlane::Render(PhatContext *context) {
-    Render(context, NULL);
+    Render(context, Texture);
 }
 void PhatPlane::Render(PhatContext *context, PhatTexture *texture) {
     bool drawit = true;
