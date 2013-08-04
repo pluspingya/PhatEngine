@@ -45,7 +45,10 @@ PhatTexture::PhatTexture(vec2d size, unsigned char data[]) {
 /////////////////////////////////////////////////////////
 // Destructor - Release
 void PhatTexture::_release() {
-
+    if(TextureID) {
+        glDeleteTextures(1, &TextureID);
+        TextureID = -1;
+    }
 }
 PhatTexture::~PhatTexture() {
     _release();

@@ -11,6 +11,7 @@
 		CE07AE0D17AD47F10089863F /* tahoma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE07AE0C17AD47F10089863F /* tahoma.ttf */; };
 		CE07AE1B17AE60460089863F /* libFreetype2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE07AE1A17AE60450089863F /* libFreetype2.a */; };
 		CE07AE1E17AE613A0089863F /* PhatText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE07AE1D17AE613A0089863F /* PhatText.cpp */; };
+		CE07AE2117AEB9E00089863F /* PhatInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE07AE2017AEB9E00089863F /* PhatInput.cpp */; };
 		CE72AB6117AAC473001E455B /* Red-bird.png in Resources */ = {isa = PBXBuildFile; fileRef = CE72AB6017AAC473001E455B /* Red-bird.png */; };
 		CE72AB6317AACA0E001E455B /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = CE72AB6217AACA0E001E455B /* test.png */; };
 		CEAC260E17A94FA000C98B7A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAC260D17A94FA000C98B7A /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 		CE07AE1A17AE60450089863F /* libFreetype2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFreetype2.a; path = lib/libFreetype2.a; sourceTree = "<group>"; };
 		CE07AE1C17AE61310089863F /* PhatText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhatText.h; sourceTree = "<group>"; };
 		CE07AE1D17AE613A0089863F /* PhatText.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatText.cpp; sourceTree = "<group>"; };
+		CE07AE1F17AEB7E60089863F /* PhatInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhatInput.h; sourceTree = "<group>"; };
+		CE07AE2017AEB9E00089863F /* PhatInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatInput.cpp; sourceTree = "<group>"; };
 		CE72AB6017AAC473001E455B /* Red-bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red-bird.png"; sourceTree = "<group>"; };
 		CE72AB6217AACA0E001E455B /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		CEAC260A17A94FA000C98B7A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +213,7 @@
 				CEAC265C17A9638900C98B7A /* PhatPlane.h */,
 				CEAC265D17A9640D00C98B7A /* PhatObj3D.h */,
 				CEAC266217A9697400C98B7A /* PhatTexture.h */,
+				CE07AE1F17AEB7E60089863F /* PhatInput.h */,
 			);
 			path = phat;
 			sourceTree = "<group>";
@@ -258,6 +262,7 @@
 				CEAC265E17A965B000C98B7A /* PhatObj3D.cpp */,
 				CEAC266017A968A700C98B7A /* PhatPlane.cpp */,
 				CEAC266317A969D700C98B7A /* PhatTexture.cpp */,
+				CE07AE2017AEB9E00089863F /* PhatInput.cpp */,
 			);
 			path = phat;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				CEAC266417A969D700C98B7A /* PhatTexture.cpp in Sources */,
 				CE07ADF817AD35A00089863F /* math.cpp in Sources */,
 				CE07AE1E17AE613A0089863F /* PhatText.cpp in Sources */,
+				CE07AE2117AEB9E00089863F /* PhatInput.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
