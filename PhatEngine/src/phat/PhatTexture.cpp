@@ -24,7 +24,7 @@ void PhatTexture::_initialize() {
     _animationDelay = 0;
     _animationCropsize = vec2f();
     _animationCountDown = 0;
-    _animationCurrenFrame = 0;
+    _animationCurrenFrame = -1;
     
 }
 PhatTexture::PhatTexture() {
@@ -57,7 +57,7 @@ PhatTexture::~PhatTexture() {
 /////////////////////////////////////////////////////////
 // Core functions - must be called
 void PhatTexture::Update() {
-    if(_animationStartFrame > 0 && _animationEndFrame > 0) {
+    if(_animationStartFrame >= 0 && _animationEndFrame >= 0) {
         _animationCountDown--;
         if(_animationCountDown <= 0) {
             _animationCountDown = _animationDelay;
@@ -285,16 +285,15 @@ void PhatTexture::CropTexture(rec4f croprect) {
     TexCoord[3].y = _maximumSize.y - ((croprect.y+croprect.h)/_textureSize.y);
 }
 void PhatTexture::CropTexture(int frame, vec2f cropsize) {
-    frame = frame - 1;
     _animationCurrenFrame = frame;
     _animationCropsize.copy(cropsize);
     vec2d t_coord = vec2d();
     float t_width = (frame*cropsize.x);
-    while (t_width > _textureSize.x) {
+    while (t_width >= _textureSize.x * _maximumSize.x) {
         t_coord.y ++;
-        t_width -= _textureSize.x;
+        t_width -= _textureSize.x*_maximumSize.x;
     }
-    t_coord.x = (int)ceil(t_width/cropsize.x);
+    t_coord.x = (int)floor(t_width/cropsize.x);
     CropTexture(rec4f(t_coord.x*cropsize.x, t_coord.y*cropsize.y, cropsize.x, cropsize.y));
 }
 void PhatTexture::FlipTexture(bool x, bool y) {
@@ -355,8 +354,7 @@ void PhatTexture::TexImage(vec2d size, unsigned char data[]) {
 }
 // This function below will be called in PhatPlane's Render only
 void PhatTexture::PhatPlane_CropForAnimation() {
-    if(_animationCurrenFrame > 0) {
-        _animationCurrenFrame += 1;
+    if(_animationCurrenFrame >= 0 && _animationCropsize.x > 0.0f && _animationCropsize.y > 0.0f) {
         CropTexture(_animationCurrenFrame, _animationCropsize);
     }
 }
