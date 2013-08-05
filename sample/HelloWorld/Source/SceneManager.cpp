@@ -36,11 +36,11 @@ void SceneManager::Render() {
     
     Text->SetFontScale(1.0f);
     Text->SetPivotType(TOP_LEFT);
-    Text->DrawText(Context, (char*)"HelloWorld", vec2f(10.0f));
+    Text->DrawText(Context, (wchar_t*)L"Hello! สวัสดีครับ", vec2f(10.0f));
     
     Text->SetFontScale(0.5f);
     Text->SetPivotType(BOTTOM_MIDDLE);
-    sprintf(Text->TextBuffer, "cur=%d,%d", Input->GetTouch(TOUCHCURRENT, 0).x, Input->GetTouch(TOUCHCURRENT, 0).y);
+    swprintf(Text->TextBuffer, 255, L"%d,%d", Input->GetTouch(TOUCHCURRENT, 0).x, Input->GetTouch(TOUCHCURRENT, 0).y);
     Text->DrawText(Context, Text->TextBuffer, vec2f(Input->GetTouch(TOUCHCURRENT, 0).x, Input->GetTouch(TOUCHCURRENT, 0).y));
     
     Context->EndRender();

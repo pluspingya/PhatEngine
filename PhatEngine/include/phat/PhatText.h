@@ -10,13 +10,14 @@
 #ifndef PHATTEXT_H_INCLUDED
 #define PHATTEXT_H_INCLUDED
 
+#include <wchar.h>
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
 #include <phat/PhatContext.h>
 #include <phat/PhatPlane.h>
 
-#define USE_CHARACTERS "abcdefghifklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 .,+-*/=!@#$%^&*()_"
+#define USE_CHARACTERS L"กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮะัาิีึืุูแโฤฦำใไabcdefghifklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 .,+-*/=!@#$%^&*()_"
 
 struct GlyphData {
     int Code;
@@ -127,13 +128,13 @@ private:
     
 public:
     
-	char TextBuffer[256];
+	wchar_t TextBuffer[256];
     col4f Colour;
     
 	PhatText(const char *filename, int pixelSize);
 	~PhatText();
     
-	void DrawText(PhatContext *context, char *text, vec2f _position);
+    void DrawText(PhatContext *context, wchar_t *text, vec2f _position);
 	void SetFontScale(float _scale);
     void SetPivotType(OBJ3D_PIVOT_TYPE type);
     

@@ -55,7 +55,8 @@ PhatText::PhatText(const char *filename, int pixelSize) {
 	unsigned char tmp[] = {0};
 	_plane->Texture = new PhatTexture(vec2d(1, 1), tmp);
 	_glyphTree = new GlyphTree();
-	for(int i=0; i<strlen(USE_CHARACTERS); i++) {
+    int n = wcslen(USE_CHARACTERS);
+	for(int i=0; i<n; i++) {
 		FT_Face face;
 #if ANDROID || TARGET_OS_IPHONE || TARGET_OS_IPHONE_SIMULATOR
         FT_New_Memory_Face(_ft, contents, t_size, 0, &face);
@@ -63,7 +64,7 @@ PhatText::PhatText(const char *filename, int pixelSize) {
         FT_New_Face(_ft, filename, 0, &face);
 #endif
 		FT_Set_Pixel_Sizes(face, 0, pixelSize);
-		FT_Load_Char(face, (int)USE_CHARACTERS[i], FT_LOAD_RENDER);
+		FT_Load_Char(face, USE_CHARACTERS[i], FT_LOAD_RENDER);
 		GlyphData d;
 		d.Code = (int)USE_CHARACTERS[i];
 		d.Face = face;
@@ -84,13 +85,11 @@ PhatText::~PhatText() {
 
 /////////////////////////////////////////////////////////
 // Core functions - must be called
-void PhatText::DrawText(PhatContext *context, char *text, vec2f _position) {
-    
+void PhatText::DrawText(PhatContext *context, wchar_t *text, vec2f _position) {
 	float start 	= _position.x;
 	float baseline 	= _position.y;
 	GlyphData *glyph = NULL;
-    
-	int i, j = strlen(text), length = 0;
+	int i, j = wcslen(text), length = 0;
     for (i=0; i<j; i++) {
         glyph = _glyphTree->getGlyphByCode((int)text[i]);
 		if(glyph!=NULL) {
@@ -100,15 +99,12 @@ void PhatText::DrawText(PhatContext *context, char *text, vec2f _position) {
 	for(i = 0; i<j; i++) {
 		glyph = _glyphTree->getGlyphByCode((int)text[i]);
 		if(glyph!=NULL) {
-            
 			_plane->Texture->TexImage(vec2d(glyph->Face->glyph->bitmap.width, glyph->Face->glyph->bitmap.rows), glyph->Face->glyph->bitmap.buffer);
-            
 			rec4f dest;
 			dest.w = int(glyph->Face->glyph->bitmap.width*_fontScale);
 			dest.h = int(glyph->Face->glyph->bitmap.rows*_fontScale);
 			dest.x = start + (int(glyph->Face->glyph->metrics.horiBearingX*_fontScale) >> 6);
 			dest.y = baseline - (int(glyph->Face->glyph->metrics.horiBearingY*_fontScale) >> 6);
-            
 			_plane->Size.set(dest.w, dest.h);
 			_plane->SetPivotType(TOP_LEFT);
             switch (_fontPivot) {
@@ -143,7 +139,6 @@ void PhatText::DrawText(PhatContext *context, char *text, vec2f _position) {
             }
             _plane->Colour.copy(Colour);
 			_plane->Render(context);
-            
 			start += (int(glyph->Face->glyph->advance.x*_fontScale) >> 6);
 		}
 	}
