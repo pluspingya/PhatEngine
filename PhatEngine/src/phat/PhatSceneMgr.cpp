@@ -13,8 +13,12 @@
 // Constructor - Initialize
 void PhatSceneMgr::_intialize() {
     Context = new PhatContext();
-    Text = new PhatText("tahoma.ttf", 32.0f);
+    Fps = new PhatFps();
     Input = new PhatInput();
+    Text = new PhatText("tahoma.ttf", 32.0f);
+    Scene = NULL;
+    SceneSelect = 0;
+    SceneCurrent = 0;
 }
 PhatSceneMgr::PhatSceneMgr() {
     _intialize();
@@ -23,8 +27,10 @@ PhatSceneMgr::PhatSceneMgr() {
 /////////////////////////////////////////////////////////
 // Destructor - Release
 void PhatSceneMgr::_release() {
-    delete Input;   Input   = NULL;
+    delete Scene;   Scene   = NULL;
     delete Text;    Text    = NULL;
+    delete Input;   Input   = NULL;
+    delete Fps;     Fps     = NULL;
     delete Context; Context = NULL;
 }
 PhatSceneMgr::~PhatSceneMgr() {
@@ -33,15 +39,24 @@ PhatSceneMgr::~PhatSceneMgr() {
 
 /////////////////////////////////////////////////////////
 // Update
-void PhatSceneMgr::Update() {
-    if(Input->IsTouched(TOUCHBEGAN, 0)) {
-        Input->SetTouched(0);
-        printf("Touched\n");
+int PhatSceneMgr::Update(PhatScene *scene) {
+    int result = -1;
+    Fps->Update();
+    if (scene) {
+        for (int i=0; i<Fps->GetNumberOfUpdate(); i++) {
+            Fps->XUpdate();
+            result = scene->Update(Context, Fps, Input, Text);
+        }
     }
+    return result;
 }
 
 /////////////////////////////////////////////////////////
 // Render
-void PhatSceneMgr::Render() {
-   
+void PhatSceneMgr::Render(PhatScene *scene) {
+    Context->BeginRender();
+    if (scene) {
+        scene->Render(Context, Fps, Input, Text);
+    }
+    Context->EndRender();
 }

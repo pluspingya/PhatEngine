@@ -1,0 +1,14 @@
+//
+//  ViewController.h
+//  HelloWorld
+//
+//  Created by Plus Pingya on 7/31/13.
+//  Copyright (c) 2013 Plus Pingya. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
+
+@interface ViewController : GLKViewController
+
+@end

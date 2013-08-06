@@ -27,13 +27,18 @@ SceneSample::~SceneSample() {
 
 /////////////////////////////////////////////////////////
 // Update
-void SceneSample::Update(PhatContext *context) {
+int SceneSample::Update(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text) {
     texture->Update();
+    
+    return SCENE_SAMPLE;
 }
 
 /////////////////////////////////////////////////////////
 // Render
-void SceneSample::Render(PhatContext *context) {
+void SceneSample::Render(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text) {
+    
+    context->SetDimension(2);
+    
     plane->Position.set(context->ScreenSize.x/2.0f, context->ScreenSize.y/2.0f);
     //texture->CropTexture(0, vec2f(100.0f, 100.0f));
     //texture->FlipTexture(false, false);

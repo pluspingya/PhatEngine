@@ -17,7 +17,7 @@
 #include <phat/PhatContext.h>
 #include <phat/PhatPlane.h>
 
-#define USE_CHARACTERS L"กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮะัาิีึืุูแโฤฦำใไabcdefghifklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 .,+-*/=!@#$%^&*()_"
+#define USE_CHARACTERS L"กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮะัาิีึืุูแโฤฦำใไabcdefghifklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 .,+-*/=!@#$%^&*()_:;><"
 
 struct GlyphData {
     int Code;

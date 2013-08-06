@@ -11,8 +11,11 @@
 #define PHATSCENEMGR_H_INCLUDED
 
 #include <phat/PhatContext.h>
-#include <phat/PhatText.h>
+#include <phat/PhatFps.h>
 #include <phat/PhatInput.h>
+#include <phat/PhatText.h>
+
+#include <phat/PhatScene.h>
 
 class PhatSceneMgr {
     
@@ -22,14 +25,19 @@ class PhatSceneMgr {
 public:
 
     PhatContext     *Context    = NULL;
-    PhatText        *Text       = NULL;
+    PhatFps         *Fps        = NULL;
     PhatInput       *Input      = NULL;
+    PhatText        *Text       = NULL;
+    PhatScene       *Scene      = NULL;
+    
+    int             SceneSelect;
+    int             SceneCurrent;
 
     PhatSceneMgr();
     ~PhatSceneMgr();
 
-    void Update();
-    void Render();
+    int Update(PhatScene *scene);
+    void Render(PhatScene *scene);
 
 };
 

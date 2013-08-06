@@ -9,10 +9,11 @@
 #ifndef __HelloWorld__SceneSample__
 #define __HelloWorld__SceneSample__
 
-#include <phat/PhatContext.h>
+#include <phat/PhatScene.h>
 #include <phat/PhatPlane.h>
 #include <phat/PhatTexture.h>
-#include <phat/PhatScene.h>
+
+#define SCENE_SAMPLE    0
 
 class SceneSample: public PhatScene {
     
@@ -24,8 +25,8 @@ public:
     SceneSample();
     ~SceneSample();
     
-    void Update(PhatContext *context);
-    void Render(PhatContext *context);
+    int Update(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text);
+    void Render(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text);
     
 };
 

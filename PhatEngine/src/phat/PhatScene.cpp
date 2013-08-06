@@ -29,12 +29,12 @@ PhatScene::~PhatScene() {
 
 /////////////////////////////////////////////////////////
 // Update
-void PhatScene::Update(PhatContext *context) {
-    
+int PhatScene::Update(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text) {
+    return -1;
 }
 
 /////////////////////////////////////////////////////////
 // Render
-void PhatScene::Render(PhatContext *context) {
+void PhatScene::Render(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text) {
     
 }

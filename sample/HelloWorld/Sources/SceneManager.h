@@ -15,8 +15,6 @@
 
 class SceneManager: public PhatSceneMgr {
     
-    PhatScene     *scene      = NULL;
-    
 public:
 
     SceneManager();

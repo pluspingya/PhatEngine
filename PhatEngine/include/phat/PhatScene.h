@@ -11,6 +11,9 @@
 #define PHATENGINE_H_INCLUDED
 
 #include <phat/PhatContext.h>
+#include <phat/PhatFps.h>
+#include <phat/PhatInput.h>
+#include <phat/PhatText.h>
 
 class PhatScene {
     
@@ -22,8 +25,8 @@ public:
     PhatScene();
     ~PhatScene();
     
-    virtual void Update(PhatContext *context);
-    virtual void Render(PhatContext *context);
+    virtual int Update(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text);
+    virtual void Render(PhatContext *context, PhatFps *fps, PhatInput *input, PhatText *text);
     
 };
 
