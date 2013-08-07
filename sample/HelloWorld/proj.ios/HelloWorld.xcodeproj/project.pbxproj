@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1852FAF117B1EE7500C6DEA8 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1852FAF017B1EE7500C6DEA8 /* libfreetype.a */; };
 		CE203D7817B15EE200ED8560 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE203D7717B15EE200ED8560 /* QuartzCore.framework */; };
-		CE203D7A17B179FC00ED8560 /* _libFreetype2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE203D7917B179FC00ED8560 /* _libFreetype2.a */; };
 		CEAB6B5317B1483800A0DB2B /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEAB6B4F17B1483800A0DB2B /* AppDelegate.mm */; };
 		CEAB6B5417B1483800A0DB2B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEAB6B5017B1483800A0DB2B /* main.mm */; };
 		CEAB6B5517B1483800A0DB2B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEAB6B5217B1483800A0DB2B /* ViewController.mm */; };
@@ -17,7 +17,6 @@
 		CEAB6B5E17B1489400A0DB2B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAB6B5B17B1489400A0DB2B /* Default@2x.png */; };
 		CEAB6B6117B1542400A0DB2B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAB6B5F17B1542400A0DB2B /* ViewController.xib */; };
 		CEAB6B6417B1543600A0DB2B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEAB6B6217B1543600A0DB2B /* InfoPlist.strings */; };
-		CEAB6BF117B1547F00A0DB2B /* libFreetype2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAB6BE117B1547F00A0DB2B /* libFreetype2.a */; };
 		CEAB6BF217B1547F00A0DB2B /* math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEAB6BE417B1547F00A0DB2B /* math.cpp */; };
 		CEAB6BF317B1547F00A0DB2B /* PhatContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEAB6BE717B1547F00A0DB2B /* PhatContext.cpp */; };
 		CEAB6BF417B1547F00A0DB2B /* PhatInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEAB6BE817B1547F00A0DB2B /* PhatInput.cpp */; };
@@ -42,8 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1852FAF017B1EE7500C6DEA8 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfreetype.a; sourceTree = "<group>"; };
 		CE203D7717B15EE200ED8560 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CE203D7917B179FC00ED8560 /* _libFreetype2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = _libFreetype2.a; sourceTree = "<group>"; };
 		CEAB6B4E17B1483800A0DB2B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		CEAB6B4F17B1483800A0DB2B /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = SOURCE_ROOT; };
 		CEAB6B5017B1483800A0DB2B /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = SOURCE_ROOT; };
@@ -152,7 +151,6 @@
 		CEAB6BDD17B1547F00A0DB2B /* col.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = col.h; sourceTree = "<group>"; };
 		CEAB6BDE17B1547F00A0DB2B /* rec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rec.h; sourceTree = "<group>"; };
 		CEAB6BDF17B1547F00A0DB2B /* vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vec.h; sourceTree = "<group>"; };
-		CEAB6BE117B1547F00A0DB2B /* libFreetype2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFreetype2.a; sourceTree = "<group>"; };
 		CEAB6BE417B1547F00A0DB2B /* math.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = math.cpp; sourceTree = "<group>"; };
 		CEAB6BE717B1547F00A0DB2B /* PhatContext.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatContext.cpp; sourceTree = "<group>"; };
 		CEAB6BE817B1547F00A0DB2B /* PhatInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PhatInput.cpp; sourceTree = "<group>"; };
@@ -191,8 +189,7 @@
 				CEAC261217A94FA000C98B7A /* CoreGraphics.framework in Frameworks */,
 				CEAC261417A94FA000C98B7A /* GLKit.framework in Frameworks */,
 				CEAC261617A94FA000C98B7A /* OpenGLES.framework in Frameworks */,
-				CEAB6BF117B1547F00A0DB2B /* libFreetype2.a in Frameworks */,
-				CE203D7A17B179FC00ED8560 /* _libFreetype2.a in Frameworks */,
+				1852FAF117B1EE7500C6DEA8 /* libfreetype.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,8 +378,7 @@
 		CEAB6BE017B1547F00A0DB2B /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				CE203D7917B179FC00ED8560 /* _libFreetype2.a */,
-				CEAB6BE117B1547F00A0DB2B /* libFreetype2.a */,
+				1852FAF017B1EE7500C6DEA8 /* libfreetype.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -702,7 +698,10 @@
 					../Sources/,
 				);
 				INFOPLIST_FILE = "HelloWorld-Info.plist";
-				LIBRARY_SEARCH_PATHS = ../../../PhatEngine/lib/;
+				LIBRARY_SEARCH_PATHS = (
+					../../../PhatEngine/lib/,
+					"\"$(SRCROOT)/../../../PhatEngine/lib\"",
+				);
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -720,7 +719,10 @@
 					../Sources/,
 				);
 				INFOPLIST_FILE = "HelloWorld-Info.plist";
-				LIBRARY_SEARCH_PATHS = ../../../PhatEngine/lib/;
+				LIBRARY_SEARCH_PATHS = (
+					../../../PhatEngine/lib/,
+					"\"$(SRCROOT)/../../../PhatEngine/lib\"",
+				);
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
